@@ -7,5 +7,5 @@ import java.io.Serializable;
 @Data
 public class RoleId implements Serializable {
     private String role;
-    private Long acc; // This is the primary key of the Account entity
+    private Long acc_id; // This is the primary key of the Account entity
 }

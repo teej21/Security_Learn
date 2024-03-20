@@ -27,8 +27,8 @@ public class Account {
     @OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
     private Employee employee;
 
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
-    private HashSet<Role> roles;
+    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
+    private Role roles;
 
 
 }

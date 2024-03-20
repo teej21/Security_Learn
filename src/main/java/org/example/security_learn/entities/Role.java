@@ -4,23 +4,19 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import org.example.security_learn.interfaces.RoleId;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "roles")
-@IdClass(RoleId.class) // This is used to indicate a composite key class
-@AllArgsConstructor
-public class Role {
-
+@IdClass(RoleId.class)
+public class Role implements Serializable {
     @Id
-    private String role;
-
+    private String name;
     @Id
-    @ManyToOne
-    @JoinColumn(name = "acc_id", referencedColumnName = "acc_id")
+    private Long acc_id; // Add this missing property
+    @OneToOne
+    @JoinColumn(name = "acc_id", referencedColumnName = "acc_id", insertable = false, updatable = false)
     private Account account;
-
-
-    public Role() {
-
-    }
 }
+
 
